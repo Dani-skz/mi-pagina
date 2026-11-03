@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dani | Sitio Oficial</title>
+    <!-- Fuente futurista y moderna desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0614;
+            --card-bg: rgba(26, 15, 43, 0.6);
+            --accent-violet: #a855f7;
+            --accent-glow: rgba(168, 85, 247, 0.4);
+            --text-main: #f3e8ff;
+            --text-muted: #cbd5e1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(88, 28, 135, 0.2) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 30px;
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* Estilo del título con tipografía futurista */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.6), 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--accent-violet);
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--accent-violet);
+            color: #ffffff;
+            box-shadow: 0 0 20px var(--accent-violet);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>DANI</h1>
+        <p class="subtitle">Bienvenid@ a mi espacio digital. Minimalismo, tecnología y futuro en un solo lugar.</p>
+        <a href="https://github.com" target="_blank" class="btn">Explorar</a>
+    </div>
+
+</body>
+</html>
