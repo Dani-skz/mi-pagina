@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danisa M.H - Diseño Indumentaria</title>
+    <title>Danisa M.H - El Realismo</title>
     <!-- FontAwesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tailwind CSS -->
@@ -31,10 +31,10 @@
             background-color: #1b1f22;
         }
 
-        /* Imagen de fondo fija con capa oscura */
+        /* Imagen de fondo sobria estilo lienzo / óleo sobrio */
         .bg-dimension {
-            background-image: linear-gradient(rgba(19, 23, 29, 0.55), rgba(19, 23, 29, 0.75)), 
-                              url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(15, 18, 22, 0.70), rgba(15, 18, 22, 0.85)), 
+                              url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -50,10 +50,6 @@
         }
 
         /* Animación para modales */
-        .modal-enter {
-            opacity: 0;
-            transform: scale(0.95) translateY(10px);
-        }
         .modal-enter-active {
             opacity: 1;
             transform: scale(1) translateY(0);
@@ -65,7 +61,7 @@
             transition: opacity 200ms ease-in, transform 200ms ease-in;
         }
 
-        /* Estilo personalizado para barras de desplazamiento */
+        /* Personalización del scroll de la galería */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -73,11 +69,11 @@
             background: rgba(0, 0, 0, 0.2);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.45);
         }
     </style>
 </head>
@@ -91,7 +87,7 @@
             
             <!-- Icono Diamante Superior -->
             <div class="relative flex flex-col items-center">
-                <div class="w-20 h-20 rounded-full border border-white/60 flex items-center justify-center bg-black/20 backdrop-blur-md shadow-lg transition duration-300 hover:border-white hover:scale-105">
+                <div class="w-20 h-20 rounded-full border border-white/60 flex items-center justify-center bg-black/30 backdrop-blur-md shadow-lg transition duration-300 hover:border-white hover:scale-105">
                     <i class="fa-regular fa-gem text-2xl text-white"></i>
                 </div>
                 <!-- Línea vertical conectora superior -->
@@ -103,11 +99,11 @@
                 <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/40"></div>
 
                 <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-md">
-                    Danissa M.H
+                    Danisa M.H
                 </h1>
                 
                 <p class="text-xs sm:text-sm font-light tracking-widest text-gray-300 uppercase leading-relaxed max-w-lg mx-auto">
-                    Muestras de Diseño Indumentaria
+                    Exploración Pictórica & Movimiento Realista
                 </p>
 
                 <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/40"></div>
@@ -116,20 +112,20 @@
             <!-- Línea vertical conectora inferior -->
             <div class="w-[1px] h-8 bg-white/40"></div>
 
-            <!-- BARRA DE NAVEGACIÓN (BOTONES CORREGIDOS) -->
+            <!-- BARRA DE NAVEGACIÓN -->
             <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/30 shadow-2xl">
                 <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/20">
                     <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
                         INTRO
                     </button>
-                    <button onclick="openModal('work')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        WORK
+                    <button onclick="openModal('historia')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        HISTORIA
                     </button>
                     <button onclick="openModal('about')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        ABOUT
+                        SOBRE MÍ
                     </button>
-                    <button onclick="openModal('coleccion')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        COLECCIÓN
+                    <button onclick="openModal('galeria')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        GALERÍA
                     </button>
                 </div>
             </div>
@@ -144,11 +140,11 @@
     </footer>
 
 
-    <!-- ==================== CONTENEDOR DE MODALES (OVERLAY ÚNICO) ==================== -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
+    <!-- ==================== CONTENEDOR DE MODALES ==================== -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
         
-        <!-- MODAL 1: INTRO -->
-        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 1: INTRODUCCIÓN CON COLLAGE -->
+        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">INTRODUCCIÓN</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -156,48 +152,60 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Intro Workspace" 
-                         class="w-full h-full object-cover">
+                <!-- COLLAGE DE FOTOS DEL REALISMO -->
+                <div class="grid grid-cols-2 gap-2 mb-4 rounded-md overflow-hidden border border-white/10 p-1 bg-black/40">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg" alt="Las Espigadoras" class="w-full h-32 object-cover rounded">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/800px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" alt="El Taller del Pintor" class="w-full h-32 object-cover rounded">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Honor%C3%A9_Daumier_003.jpg/800px-Honor%C3%A9_Daumier_003.jpg" alt="El Vagón de Tercera Clase" class="w-full h-32 object-cover rounded">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg" alt="El Ángelus" class="w-full h-32 object-cover rounded">
                 </div>
-                <p>
-                    ¡Bienvenido a mi sitio web! Este espacio está diseñado para presentar mis proyectos de indumentaria, mi visión creativa y la exploración estilística de mis colecciones.
+                
+                <p class="text-base text-white font-light">
+                    Bienvenido a esta muestra interactiva dedicada al <strong>Realismo del siglo XIX</strong>.
                 </p>
                 <p>
-                    Puedes navegar libremente por cada una de las pestañas para conocer mis trabajos anteriores, mi perfil artístico y el catálogo completo de nuestra última cápsula.
+                    Este espacio fue concebido para explorar la belleza cruda y honesta del movimiento realista, un período donde los artistas abandonaron las fantasías mitológicas e idealizadas para enfocar su pincel en la cotidianidad, el trabajo campesino y la vida urbana del pueblo.
+                </p>
+                <p>
+                    A través de esta plataforma podrás conocer el surgimiento histórico del movimiento, sus grandes expositores y una cuidada galería visual con las obras más emblemáticas.
                 </p>
             </div>
         </div>
 
-        <!-- MODAL 2: WORK -->
-        <div id="modal-work" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 2: HISTORIA DEL REALISMO (antes Work) -->
+        <div id="modal-historia" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">PROYECTOS & TRABAJOS</h2>
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">HISTORIA & ORIGEN</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Work Code" 
+                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/1280px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" 
+                         alt="Historia del Realismo" 
                          class="w-full h-full object-cover">
                 </div>
-                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">Desarrollo de Colecciones</h3>
+                
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">El Surgimiento (Francia, mediados del siglo XIX)</h3>
                 <p>
-                    Trabajo enfocado en la investigación textil, moldería experimental y ensamble de piezas conceptuales inspiradas en corrientes artísticas del Realismo.
+                    El Realismo surgió en Francia tras la Revolución de 1848 como una firme reacción contra el <strong>Romanticismo</strong> (que buscaba el drama y lo sublime) y el <strong>Neoclasicismo</strong> (centrado en la belleza griega e idealizada).
                 </p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Moldería</span>
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Alta Costura</span>
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Textiles</span>
-                </div>
+                
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1 font-sans pt-2">¿En qué se inspiraban?</h3>
+                <p>
+                    Bajo el lema de Gustave Courbet —<em>"Muéstrame un ángel y pintaré uno"</em>—, los artistas realistas sostenían que el arte debía representar únicamente el mundo tangible y contemporáneo.
+                </p>
+                <ul class="list-disc list-inside space-y-1 text-gray-300 pl-2">
+                    <li><strong>La verdad del trabajo:</strong> El campesinado, campesinas espigando y obreros picando piedra.</li>
+                    <li><strong>La vida urbana:</strong> Los vagones de tren de tercera clase, lavanderas y el ámbito social cotidiano.</li>
+                    <li><strong>La iluminación natural y tonos tierra:</strong> Paletas sobrias que reflejaban la naturaleza sin adornos artificiales.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- MODAL 3: ABOUT -->
-        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 3: SOBRE MÍ (Personalizado para Danisa) -->
+        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">SOBRE MÍ</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -205,91 +213,108 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" 
-                         alt="About Team/Profile" 
+                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Danisa - Aprendizaje HTML" 
                          class="w-full h-full object-cover">
                 </div>
+                
+                <h3 class="text-xl font-light text-white">¡Hola! Soy Danisa</h3>
                 <p>
-                    Diseñadora apasionada por la creación de prendas que combinan estructura, practicidad y una impronta estética sofisticada.
+                    Quise crear esta nueva página web basándome en el movimiento artístico del <strong>Realismo</strong> para combinar la programación con la historia del arte. 
                 </p>
                 <p>
-                    Buscando constantemente innovar en siluetas y acabados de calidad para ofrecer piezas duraderas e identitarias.
+                    Mi motivación principal es integrar un trasfondo cultural e histórico en este proyecto, haciendo que mi proceso de aprendizaje en el mundo de <strong>HTML, CSS y desarrollo web</strong> sea mucho más interactivo, enriquecedor y entretenido.
                 </p>
+                <div class="pt-2 border-t border-white/10 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">HTML5 / CSS3</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Historia del Arte</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">GitHub Pages</span>
+                </div>
             </div>
         </div>
 
-        <!-- MODAL 4: COLECCIÓN DE ROPA (GALERÍA DE 5 PRENDAS) -->
-        <div id="modal-coleccion" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 4: GALERÍA (5 Pinturas Realistas con Significado) -->
+        <div id="modal-galeria" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">COLECCIÓN</h2>
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">GALERÍA REALISTA</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             
-            <!-- GALERÍA SCROLLABLE VERTICAL -->
+            <!-- GALERÍA SCROLLABLE VERTICAL CON 5 OBRAS -->
             <div class="p-6 overflow-y-auto space-y-6 text-gray-300 text-sm leading-relaxed">
                 <p class="text-xs uppercase tracking-widest text-gray-400 -mt-2">
-                    Explora nuestra última cápsula. Desliza hacia abajo con el mouse o teclado.
+                    Desliza hacia abajo para recorrer las 5 obras y conocer sus datos históricos.
                 </p>
 
-                <!-- Prenda 1 -->
-                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Prenda 1" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                <!-- Obra 1 -->
+                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/800px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" alt="El Taller del Pintor" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
                     <div class="flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Tapado Realista Oversize</h3>
-                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$120.000 / Colección Realismo</span>
-                            <p class="text-xs text-gray-300 leading-relaxed">Confeccionado en paño de lana pesado con corte estructurado. Caída recta y solapas amplias.</p>
+                            <h3 class="text-base font-light tracking-wide text-white uppercase">1. El taller del pintor</h3>
+                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1855) / Museo de Orsay</span>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                                <strong>Significado:</strong> Considerada la obra cumbre de Courbet. Representa al pintor en el centro trabajando, rodeado a la izquierda por personajes de la sociedad común (pobreza, trabajo) y a la derecha por sus amigos intelectuales como Charles Baudelaire.
+                            </p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Prenda 2 -->
-                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Prenda 2" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                <!-- Obra 2 -->
+                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg" alt="Las Espigadoras" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
                     <div class="flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Vestido Texturizado</h3>
-                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$85.000 / Alta Costura</span>
-                            <p class="text-xs text-gray-300 leading-relaxed">Diseño conceptual con pliegues orgánicos en lino crudo. Ajuste al cuerpo con espalda descubierta.</p>
+                            <h3 class="text-base font-light tracking-wide text-white uppercase">2. Las espigadoras</h3>
+                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1857) / Museo de Orsay</span>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                                <strong>Significado:</strong> Muestra a tres mujeres pobres inclinadas recogiendo los restos del trigo tras la cosecha. Dignifica el arduo trabajo rural sin idealizaciones heroicas, causando gran conmoción en la burguesía de la época.
+                            </p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Prenda 3 -->
-                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" alt="Prenda 3" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                <!-- Obra 3 -->
+                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Courbet_The_Stonebreakers.jpg/800px-Courbet_The_Stonebreakers.jpg" alt="Los Picapedreros" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
                     <div class="flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Saco Sastre Minimal</h3>
-                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$95.000 / Edición Limitada</span>
-                            <p class="text-xs text-gray-300 leading-relaxed">Sastrería contemporánea en gabardina de algodón. Botonadura oculta y forro de seda interior.</p>
+                            <h3 class="text-base font-light tracking-wide text-white uppercase">3. Los picapedreros</h3>
+                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1849) / Manifiesto Realista</span>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                                <strong>Significado:</strong> Un anciano y un joven rompiendo piedras al lado del camino. Courbet pintó sus rostros ocultos para simbolizar que no eran individuos específicos, sino la personificación del trabajo duro e interminable de la clase obrera.
+                            </p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Prenda 4 -->
-                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Prenda 4" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                <!-- Obra 4 -->
+                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Honor%C3%A9_Daumier_003.jpg/800px-Honor%C3%A9_Daumier_003.jpg" alt="El Vagón de Tercera Clase" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
                     <div class="flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Conjunto Urbano Real</h3>
-                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$110.000 / Prêt-à-porter</span>
-                            <p class="text-xs text-gray-300 leading-relaxed">Dos piezas en tonos neutros. Pantalón de tiro alto con pinzas y blusa fluida de satén.</p>
+                            <h3 class="text-base font-light tracking-wide text-white uppercase">4. El vagón de tercera clase</h3>
+                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Honoré Daumier (1864) / Museo MET de Nueva York</span>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                                <strong>Significado:</strong> Captura la fatiga y resignación de los viajeros pobres hacinados en un tren urbano durante la Revolución Industrial. Daumier destaca la mirada digna de una abuela y su nieto en primer plano.
+                            </p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Prenda 5 -->
-                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Prenda 5" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                <!-- Obra 5 -->
+                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg" alt="El Ángelus" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
                     <div class="flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Campera de Cuero Artesanal</h3>
-                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$150.000 / Pieza Única</span>
-                            <p class="text-xs text-gray-300 leading-relaxed">Cuero genuino trabajado a mano con detalles metálicos oscurecidos y costuras expuestas.</p>
+                            <h3 class="text-base font-light tracking-wide text-white uppercase">5. El ángelus</h3>
+                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1859) / Museo de Orsay</span>
+                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                                <strong>Significado:</strong> Dos campesinos interrumpen su trabajo al atardecer para rezar la oración del Ángelus tras escuchar las campanas del campanario distante. Es un tributo a la devoción sincera y la sencillez de la vida del campo.
+                            </p>
                         </div>
                     </div>
                 </article>
@@ -299,18 +324,16 @@
 
     </div>
 
-    <!-- JAVASCRIPT DE CONTROL CORREGIDO -->
+    <!-- JAVASCRIPT DE CONTROL -->
     <script>
         const overlay = document.getElementById('modal-overlay');
         const mainContainer = document.getElementById('main-container');
         let currentModal = null;
 
         function openModal(id) {
-            // Selecciona el modal exacto basado en el ID
             const modal = document.getElementById(`modal-${id}`);
             if (!modal) return;
 
-            // Ocultar cualquier modal previamente abierto
             if (currentModal) {
                 currentModal.classList.add('hidden');
             }
@@ -327,18 +350,16 @@
             modal.classList.remove('hidden');
             modal.classList.add('modal-enter-active');
 
-            // Efecto de alejamiento ligero del fondo
+            // Efecto de alejamiento del fondo
             mainContainer.classList.add('scale-95', 'blur-sm', 'opacity-50');
         }
 
         function closeModal() {
             if (!currentModal) return;
 
-            // Animación de salida del modal
             currentModal.classList.remove('modal-enter-active');
             currentModal.classList.add('modal-exit-active');
 
-            // Ocultar Overlay
             overlay.classList.add('opacity-0');
 
             setTimeout(() => {
@@ -352,14 +373,14 @@
             }, 250);
         }
 
-        // Cerrar al hacer clic fuera del contenido del modal
+        // Cerrar al hacer clic fuera del modal
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 closeModal();
             }
         });
 
-        // Cerrar con la tecla Escape
+        // Cerrar con tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
