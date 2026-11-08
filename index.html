@@ -3,94 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dani | Sitio Oficial</title>
-    <!-- Fuente futurista y moderna desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0d0614;
-            --card-bg: rgba(26, 15, 43, 0.6);
-            --accent-violet: #a855f7;
-            --accent-glow: rgba(168, 85, 247, 0.4);
-            --text-main: #f3e8ff;
-            --text-muted: #cbd5e1;
+    <title>Dimension Portfolio</title>
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        widest2: '0.25em',
+                        widest3: '0.35em',
+                    }
+                }
+            }
         }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(88, 28, 135, 0.2) 0%, transparent 40%);
-            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #1b1f22;
         }
 
-        .container {
-            text-align: center;
-            padding: 50px 30px;
-            background: var(--card-bg);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            backdrop-filter: blur(16px);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
-            max-width: 500px;
-            width: 90%;
+        /* Imagen de fondo fija con capa oscura */
+        .bg-dimension {
+            background-image: linear-gradient(rgba(19, 23, 29, 0.55), rgba(19, 23, 29, 0.75)), 
+                              url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        /* Estilo del título con tipografía futurista */
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(168, 85, 247, 0.6), 0 0 20px rgba(168, 85, 247, 0.3);
+        /* Efecto Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-weight: 300;
-            line-height: 1.6;
+        /* Animación para modales */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+            transition: opacity 200ms ease-in, transform 200ms ease-in;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--accent-violet);
-            border-radius: 30px;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+        /* Estilo personalizado para barras de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        .btn:hover {
-            background: var(--accent-violet);
-            color: #ffffff;
-            box-shadow: 0 0 20px var(--accent-violet);
-            transform: translateY(-2px);
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
-<body>
+<body class="bg-dimension min-h-screen text-white flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-white selection:text-black">
 
-    <div class="container">
-        <h1>¡Bienvenido!</h1>
-        <p class="subtitle">Mi primera página de prueba</p>
-        <a href="https://github.com" target="_blank" class="btn">Explorar</a>
+    <!-- Capa sutil de animación al cargar -->
+    <div id="main-container" class="w-full flex-grow flex flex-col justify-center items-center p-4 sm:p-6 transition-all duration-500 z-10">
+
+        <!-- TARJETA PRINCIPAL ESTILO DIMENSION -->
+        <div class="w-full max-w-2xl flex flex-col items-center text-center">
+            
+            <!-- Icono Diamante Superior -->
+            <div class="relative flex flex-col items-center">
+                <div class="w-20 h-20 rounded-full border border-white/60 flex items-center justify-center bg-black/20 backdrop-blur-md shadow-lg transition duration-300 hover:border-white hover:scale-105">
+                    <i class="fa-regular fa-gem text-2xl text-white"></i>
+                </div>
+                <!-- Línea vertical conectora superior -->
+                <div class="w-[1px] h-8 bg-white/40"></div>
+            </div>
+
+            <!-- Caja Principal del Título y Subtítulo -->
+            <div class="w-full glass-panel rounded-sm px-6 py-10 sm:px-12 sm:py-14 relative border-t border-b border-white/30">
+                <!-- Línea horizontal superior del diseño original -->
+                <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/40"></div>
+
+                <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-md">
+                    Danissa M.H
+                </h1>
+                
+                <p class="text-xs sm:text-sm font-light tracking-widest text-gray-300 uppercase leading-relaxed max-w-lg mx-auto">
+                    Muestras de Diseño Indumentaria
+                </p>
+
+                <!-- Línea horizontal inferior -->
+                <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/40"></div>
+            </div>
+
+            <!-- Línea vertical conectora inferior -->
+            <div class="w-[1px] h-8 bg-white/40"></div>
+
+            <!-- BARRA DE NAVEGACIÓN (BOTONES) -->
+            <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/30 shadow-2xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/20">
+                    <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        INTRO
+                    </button>
+                    <button onclick="openModal('T')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        WORK
+                    </button>
+                    <button onclick="openModal('about')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        ABOUT
+                    </button>
+                    <button onclick="openModal('contact')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        CONTACT
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
+    <!-- FOOTER CRÉDITOS -->
+    <footer class="w-full py-6 text-center text-xs tracking-widest text-gray-400 z-10">
+        <p>© UNTITLED. DESIGN: <a href="https://html5up.net" target="_blank" class="underline hover:text-white transition">HTML5 UP</a>. BUILT FOR GITHUB PAGES.</p>
+    </footer>
+
+
+    <!-- ==================== CONTENEDORES DE LAS SOLAPITAS (MODALES) ==================== -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
+        
+        <!-- MODAL INTRO -->
+        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">INTRODUCCIÓN</h2>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
+                <!-- ESPACIO PARA IMAGEN -->
+                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Intro Workspace" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Tu+Imagen+Aqui'">
+                </div>
+                <p>
+                    ¡Bienvenido a mi sitio web! Este espacio está diseñado para presentar mis proyectos, mi trayectoria en el desarrollo de software y las habilidades tecnológicas que domino.
+                </p>
+                <p>
+                    Puedes navegar libremente por cada una de las pestañas para conocer más sobre mi trabajo reciente, mi experiencia académica o profesional y los métodos directos para ponerte en contacto conmigo.
+                </p>
+            </div>
+        </div>
+
+        <!-- MODAL WORK -->
+        <div id="modal-work" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">PROYECTOS & TRABAJOS</h2>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
+                <!-- ESPACIO PARA IMAGEN -->
+                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Work Code" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Imagen+de+Proyecto'">
+                </div>
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">Proyecto Destacado</h3>
+                <p>
+                    Aquí puedes describir detalladamente tus proyectos más importantes subidos a GitHub. Incluye los lenguajes utilizados (ej. C#, JavaScript, Python), bases de datos y arquitecturas empleadas.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">HTML5 / CSS3</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">JavaScript</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">GitHub Pages</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL ABOUT -->
+        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">SOBRE MÍ</h2>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
+                <!-- ESPACIO PARA IMAGEN -->
+                <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" 
+                         alt="About Team/Profile" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Tu+Foto+o+Perfil'">
+                </div>
+                <p>
+                    Apasionado por la tecnología, la programación y la resolución de problemas lógicos. Me enfoco en crear soluciones eficientes, código limpio y experiencias de usuario atractivas.
+                </p>
+                <p>
+                    Constantemente aprendiendo nuevas tecnologías y compartiendo conocimiento a través de repositorios de código abierto.
+                </p>
+            </div>
+        </div>
+
+       <!-- MODAL 4: COLECCIÓN DE ROPA -->
+<div id="modal-contact" class="modal-overlay">
+  <div class="modal-card">
+    <button class="close-btn" onclick="closeModal('modal-contact')">&times;</button>
+    <h2>COLECCIÓN</h2>
+    <p style="margin-bottom: 20px; font-size: 0.9em; opacity: 0.8;">
+      Explora nuestra última cápsula. Desliza hacia abajo para ver todas las prendas.
+    </p>
+
+    <!-- Galería scrollable -->
+    <div class="gallery-scroll">
+      
+      <!-- Prenda 1 -->
+      <article class="clothing-card">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Prenda 1">
+        <div class="clothing-info">
+          <h3>Tapado Realista Oversize</h3>
+          <span class="tag">$120.000 / Colección Realismo</span>
+          <p>Confeccionado en paño de lana pesado con corte estructurado. Caída recta y solapas amplias.</p>
+        </div>
+      </article>
+
+      <!-- Prenda 2 -->
+      <article class="clothing-card">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Prenda 2">
+        <div class="clothing-info">
+          <h3>Vestido Texturizado</h3>
+          <span class="tag">$85.000 / Alta Costura</span>
+          <p>Diseño conceptual con pliegues orgánicos en lino crudo. Ajuste al cuerpo con espalda descubierta.</p>
+        </div>
+      </article>
+
+      <!-- Prenda 3, 4 y 5 continúan abajo... -->
+
+    </div>
+  </div>
+</div>
+
+    <!-- JAVASCRIPT DE CONTROL -->
+    <script>
+        const overlay = document.getElementById('modal-overlay');
+        const mainContainer = document.getElementById('main-container');
+        let currentModal = null;
+
+        function openModal(id) {
+            const modal = document.getElementById(`modal-${id}`);
+            if (!modal) return;
+
+            currentModal = modal;
+            
+            // Mostrar Overlay
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+            }, 10);
+
+            // Mostrar Modal con animación
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-enter-active');
+
+            // Efecto de alejamiento ligero del fondo
+            mainContainer.classList.add('scale-95', 'blur-sm', 'opacity-50');
+        }
+
+        function closeModal() {
+            if (!currentModal) return;
+
+            // Animación de salida del modal
+            currentModal.classList.remove('modal-enter-active');
+            currentModal.classList.add('modal-exit-active');
+
+            // Ocultar Overlay
+            overlay.classList.add('opacity-0');
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                if (currentModal) {
+                    currentModal.classList.add('hidden');
+                    currentModal.classList.remove('modal-exit-active');
+                    currentModal = null;
+                }
+                mainContainer.classList.remove('scale-95', 'blur-sm', 'opacity-50');
+            }, 250);
+        }
+
+        // Cerrar al hacer clic fuera del contenido del modal
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeModal();
+            }
+        });
+     // Cerrar con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
