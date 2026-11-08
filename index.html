@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dimension Portfolio</title>
+    <title>Danisa M.H - Diseño Indumentaria</title>
     <!-- FontAwesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tailwind CSS -->
@@ -59,10 +59,6 @@
             transform: scale(1) translateY(0);
             transition: opacity 300ms ease-out, transform 300ms ease-out;
         }
-        .modal-exit {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
         .modal-exit-active {
             opacity: 0;
             transform: scale(0.95) translateY(10px);
@@ -87,7 +83,7 @@
 </head>
 <body class="bg-dimension min-h-screen text-white flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-white selection:text-black">
 
-    <!-- Capa sutil de animación al cargar -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div id="main-container" class="w-full flex-grow flex flex-col justify-center items-center p-4 sm:p-6 transition-all duration-500 z-10">
 
         <!-- TARJETA PRINCIPAL ESTILO DIMENSION -->
@@ -104,7 +100,6 @@
 
             <!-- Caja Principal del Título y Subtítulo -->
             <div class="w-full glass-panel rounded-sm px-6 py-10 sm:px-12 sm:py-14 relative border-t border-b border-white/30">
-                <!-- Línea horizontal superior del diseño original -->
                 <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/40"></div>
 
                 <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-md">
@@ -115,27 +110,26 @@
                     Muestras de Diseño Indumentaria
                 </p>
 
-                <!-- Línea horizontal inferior -->
                 <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/40"></div>
             </div>
 
             <!-- Línea vertical conectora inferior -->
             <div class="w-[1px] h-8 bg-white/40"></div>
 
-            <!-- BARRA DE NAVEGACIÓN (BOTONES) -->
+            <!-- BARRA DE NAVEGACIÓN (BOTONES CORREGIDOS) -->
             <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/30 shadow-2xl">
                 <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/20">
                     <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
                         INTRO
                     </button>
-                    <button onclick="openModal('T')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                    <button onclick="openModal('work')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
                         WORK
                     </button>
                     <button onclick="openModal('about')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
                         ABOUT
                     </button>
-                    <button onclick="openModal('contact')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        CONTACT
+                    <button onclick="openModal('coleccion')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
+                        COLECCIÓN
                     </button>
                 </div>
             </div>
@@ -150,11 +144,11 @@
     </footer>
 
 
-    <!-- ==================== CONTENEDORES DE LAS SOLAPITAS (MODALES) ==================== -->
+    <!-- ==================== CONTENEDOR DE MODALES (OVERLAY ÚNICO) ==================== -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
         
-        <!-- MODAL INTRO -->
-        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 1: INTRO -->
+        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">INTRODUCCIÓN</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -162,24 +156,22 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- ESPACIO PARA IMAGEN -->
                 <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
                     <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop" 
                          alt="Intro Workspace" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Tu+Imagen+Aqui'">
+                         class="w-full h-full object-cover">
                 </div>
                 <p>
-                    ¡Bienvenido a mi sitio web! Este espacio está diseñado para presentar mis proyectos, mi trayectoria en el desarrollo de software y las habilidades tecnológicas que domino.
+                    ¡Bienvenido a mi sitio web! Este espacio está diseñado para presentar mis proyectos de indumentaria, mi visión creativa y la exploración estilística de mis colecciones.
                 </p>
                 <p>
-                    Puedes navegar libremente por cada una de las pestañas para conocer más sobre mi trabajo reciente, mi experiencia académica o profesional y los métodos directos para ponerte en contacto conmigo.
+                    Puedes navegar libremente por cada una de las pestañas para conocer mis trabajos anteriores, mi perfil artístico y el catálogo completo de nuestra última cápsula.
                 </p>
             </div>
         </div>
 
-        <!-- MODAL WORK -->
-        <div id="modal-work" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 2: WORK -->
+        <div id="modal-work" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">PROYECTOS & TRABAJOS</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -187,27 +179,25 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- ESPACIO PARA IMAGEN -->
                 <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" 
+                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1000&auto=format&fit=crop" 
                          alt="Work Code" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Imagen+de+Proyecto'">
+                         class="w-full h-full object-cover">
                 </div>
-                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">Proyecto Destacado</h3>
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">Desarrollo de Colecciones</h3>
                 <p>
-                    Aquí puedes describir detalladamente tus proyectos más importantes subidos a GitHub. Incluye los lenguajes utilizados (ej. C#, JavaScript, Python), bases de datos y arquitecturas empleadas.
+                    Trabajo enfocado en la investigación textil, moldería experimental y ensamble de piezas conceptuales inspiradas en corrientes artísticas del Realismo.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-2">
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">HTML5 / CSS3</span>
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">JavaScript</span>
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">GitHub Pages</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Moldería</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Alta Costura</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-mono text-gray-300 border border-white/10">Textiles</span>
                 </div>
             </div>
         </div>
 
-        <!-- MODAL ABOUT -->
-        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-900/80 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 3: ABOUT -->
+        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">SOBRE MÍ</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -215,69 +205,115 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- ESPACIO PARA IMAGEN -->
                 <div class="w-full h-48 sm:h-64 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" 
                          alt="About Team/Profile" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x400/1e293b/ffffff?text=Tu+Foto+o+Perfil'">
+                         class="w-full h-full object-cover">
                 </div>
                 <p>
-                    Apasionado por la tecnología, la programación y la resolución de problemas lógicos. Me enfoco en crear soluciones eficientes, código limpio y experiencias de usuario atractivas.
+                    Diseñadora apasionada por la creación de prendas que combinan estructura, practicidad y una impronta estética sofisticada.
                 </p>
                 <p>
-                    Constantemente aprendiendo nuevas tecnologías y compartiendo conocimiento a través de repositorios de código abierto.
+                    Buscando constantemente innovar en siluetas y acabados de calidad para ofrecer piezas duraderas e identitarias.
                 </p>
             </div>
         </div>
 
-       <!-- MODAL 4: COLECCIÓN DE ROPA -->
-<div id="modal-contact" class="modal-overlay">
-  <div class="modal-card">
-    <button class="close-btn" onclick="closeModal('modal-contact')">&times;</button>
-    <h2>COLECCIÓN</h2>
-    <p style="margin-bottom: 20px; font-size: 0.9em; opacity: 0.8;">
-      Explora nuestra última cápsula. Desliza hacia abajo para ver todas las prendas.
-    </p>
+        <!-- MODAL 4: COLECCIÓN DE ROPA (GALERÍA DE 5 PRENDAS) -->
+        <div id="modal-coleccion" class="modal-card hidden glass-panel bg-slate-900/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">COLECCIÓN</h2>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <!-- GALERÍA SCROLLABLE VERTICAL -->
+            <div class="p-6 overflow-y-auto space-y-6 text-gray-300 text-sm leading-relaxed">
+                <p class="text-xs uppercase tracking-widest text-gray-400 -mt-2">
+                    Explora nuestra última cápsula. Desliza hacia abajo con el mouse o teclado.
+                </p>
 
-    <!-- Galería scrollable -->
-    <div class="gallery-scroll">
-      
-      <!-- Prenda 1 -->
-      <article class="clothing-card">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Prenda 1">
-        <div class="clothing-info">
-          <h3>Tapado Realista Oversize</h3>
-          <span class="tag">$120.000 / Colección Realismo</span>
-          <p>Confeccionado en paño de lana pesado con corte estructurado. Caída recta y solapas amplias.</p>
+                <!-- Prenda 1 -->
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Prenda 1" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Tapado Realista Oversize</h3>
+                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$120.000 / Colección Realismo</span>
+                            <p class="text-xs text-gray-300 leading-relaxed">Confeccionado en paño de lana pesado con corte estructurado. Caída recta y solapas amplias.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Prenda 2 -->
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Prenda 2" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Vestido Texturizado</h3>
+                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$85.000 / Alta Costura</span>
+                            <p class="text-xs text-gray-300 leading-relaxed">Diseño conceptual con pliegues orgánicos en lino crudo. Ajuste al cuerpo con espalda descubierta.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Prenda 3 -->
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" alt="Prenda 3" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Saco Sastre Minimal</h3>
+                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$95.000 / Edición Limitada</span>
+                            <p class="text-xs text-gray-300 leading-relaxed">Sastrería contemporánea en gabardina de algodón. Botonadura oculta y forro de seda interior.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Prenda 4 -->
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Prenda 4" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Conjunto Urbano Real</h3>
+                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$110.000 / Prêt-à-porter</span>
+                            <p class="text-xs text-gray-300 leading-relaxed">Dos piezas en tonos neutros. Pantalón de tiro alto con pinzas y blusa fluida de satén.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Prenda 5 -->
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Prenda 5" class="w-full sm:w-40 h-56 object-cover rounded border border-white/10 shrink-0">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-light tracking-wide text-white uppercase">Campera de Cuero Artesanal</h3>
+                            <span class="inline-block px-2 py-0.5 my-2 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">$150.000 / Pieza Única</span>
+                            <p class="text-xs text-gray-300 leading-relaxed">Cuero genuino trabajado a mano con detalles metálicos oscurecidos y costuras expuestas.</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </div>
-      </article>
-
-      <!-- Prenda 2 -->
-      <article class="clothing-card">
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Prenda 2">
-        <div class="clothing-info">
-          <h3>Vestido Texturizado</h3>
-          <span class="tag">$85.000 / Alta Costura</span>
-          <p>Diseño conceptual con pliegues orgánicos en lino crudo. Ajuste al cuerpo con espalda descubierta.</p>
-        </div>
-      </article>
-
-      <!-- Prenda 3, 4 y 5 continúan abajo... -->
 
     </div>
-  </div>
-</div>
 
-    <!-- JAVASCRIPT DE CONTROL -->
+    <!-- JAVASCRIPT DE CONTROL CORREGIDO -->
     <script>
         const overlay = document.getElementById('modal-overlay');
         const mainContainer = document.getElementById('main-container');
         let currentModal = null;
 
         function openModal(id) {
+            // Selecciona el modal exacto basado en el ID
             const modal = document.getElementById(`modal-${id}`);
             if (!modal) return;
+
+            // Ocultar cualquier modal previamente abierto
+            if (currentModal) {
+                currentModal.classList.add('hidden');
+            }
 
             currentModal = modal;
             
@@ -322,7 +358,8 @@
                 closeModal();
             }
         });
-     // Cerrar con la tecla Escape
+
+        // Cerrar con la tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
