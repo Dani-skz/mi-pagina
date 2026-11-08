@@ -3,7 +3,7 @@
 Este es el repositorio oficial de mi sitio web personal creado en GitHub.
 
 ## 📌 Sobre mí
-* **Nombre:** Tu Nombre
+* **Nombre:** Dani
 * **Intereses:** Desarrollo web, tecnología, diseño.
 
 ## 🛠️ Tecnologías utilizadas
