@@ -26,6 +26,7 @@
             background-color: #0f1115;
         }
 
+
 /* Imagen de fondo sobria con gradiente sutil */
         .bg-dimension {
             background-image: linear-gradient(rgba(10, 12, 16, 0.65), rgba(10, 12, 16, 0.80)), 
@@ -43,22 +44,29 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
+        /* Modales de vidrio esmerilado: translúcidos, con brillo suave */
         .glass-modal {
-            background: rgba(18, 20, 26, 0.80) !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: linear-gradient(145deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 45%, rgba(20,22,28,0.35) 100%) !important;
+            backdrop-filter: blur(28px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(140%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 24px 70px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.45);
         }
+        .glass-modal .modal-head { background: rgba(255,255,255,0.05); }
 
-        .modal-enter-active {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            transition: opacity 300ms ease-out, transform 300ms ease-out;
-        }
-        .modal-exit-active {
+        /* Animación: aparece con un leve zoom y desenfoque */
+        .modal-card {
             opacity: 0;
-            transform: scale(0.95) translateY(10px);
-            transition: opacity 200ms ease-in, transform 200ms ease-in;
+            transform: scale(0.96) translateY(14px);
+            filter: blur(6px);
+            transition: opacity 350ms ease, transform 350ms cubic-bezier(.2,.8,.2,1), filter 350ms ease;
+        }
+        .modal-enter-active { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        .modal-exit-active { opacity: 0; transform: scale(0.97) translateY(8px); filter: blur(4px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .modal-card { transition: none; filter: none; }
         }
 
         /* Las pinturas se muestran completas, sin recortes */
@@ -124,11 +132,11 @@
 
 
     <!-- ==================== MODALES ==================== -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
+    <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
 
         <!-- MODAL 1: INTRODUCCIÓN -->
         <div id="modal-intro" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
-            <div class="flex justify-between items-center p-6 border-b border-white/10">
+            <div class="modal-head flex justify-between items-center p-6 border-b border-white/15">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">Introducción</h2>
                 <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -152,7 +160,7 @@
 
         <!-- MODAL 2: HISTORIA -->
         <div id="modal-historia" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
-            <div class="flex justify-between items-center p-6 border-b border-white/10">
+            <div class="modal-head flex justify-between items-center p-6 border-b border-white/15">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">Historia &amp; Origen</h2>
                 <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -186,16 +194,18 @@
 
         <!-- MODAL 3: SOBRE MÍ -->
         <div id="modal-about" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
-            <div class="flex justify-between items-center p-6 border-b border-white/10">
+            <div class="modal-head flex justify-between items-center p-6 border-b border-white/15">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">Sobre mí</h2>
                 <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- Aquí puedes poner tu propia foto: <img src="foto.jpg" ...> -->
-                <div class="w-full h-32 rounded-md border border-white/10 bg-gradient-to-br from-white/10 to-black/30 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-paintbrush text-4xl text-white/60"></i>
+                <!-- Foto casual: sube cafe.jpg (café + compu) al repositorio -->
+                <div class="relative w-full h-48 sm:h-56 rounded-md overflow-hidden border border-white/15 bg-gradient-to-br from-white/10 to-black/30 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-mug-hot text-4xl text-white/50"></i>
+                    <img src="cafe.jpg" alt="Café y computadora" loading="lazy" class="absolute inset-0 w-full h-full object-cover"
+                         onerror="this.remove()">
                 </div>
 
                 <h3 class="text-xl font-light text-white">¡Hola! Soy Danisa</h3>
@@ -215,7 +225,7 @@
 
         <!-- MODAL 4: GALERÍA -->
         <div id="modal-galeria" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
-            <div class="flex justify-between items-center p-6 border-b border-white/10">
+            <div class="modal-head flex justify-between items-center p-6 border-b border-white/15">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">Galería realista</h2>
                 <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -327,7 +337,8 @@
             overlay.classList.remove('hidden');
             setTimeout(() => overlay.classList.remove('opacity-0'), 10);
 
-            modal.classList.remove('hidden');
+            modal.classList.remove('hidden', 'modal-exit-active');
+            void modal.offsetWidth; // fuerza el reflow para animar la entrada
             modal.classList.add('modal-enter-active');
 
             mainContainer.classList.add('scale-95', 'blur-sm', 'opacity-50');
