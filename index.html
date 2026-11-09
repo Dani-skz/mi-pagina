@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danissa M.H - El Realismo</title>
+    <title>Danisa M.H - El Realismo</title>
     <!-- FontAwesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tailwind CSS -->
@@ -12,13 +12,8 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    letterSpacing: {
-                        widest2: '0.25em',
-                        widest3: '0.35em',
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    letterSpacing: { widest2: '0.25em', widest3: '0.35em' }
                 }
             }
         }
@@ -31,7 +26,7 @@
             background-color: #0f1115;
         }
 
-        /* Imagen de fondo sobria con gradiente sutil */
+/* Imagen de fondo sobria con gradiente sutil */
         .bg-dimension {
             background-image: linear-gradient(rgba(10, 12, 16, 0.65), rgba(10, 12, 16, 0.80)), 
                               url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=2000&auto=format&fit=crop');
@@ -41,7 +36,6 @@
             background-attachment: fixed;
         }
 
-        /* Panel Glassmorphism Transparente y Moderno */
         .glass-panel {
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(16px);
@@ -49,15 +43,13 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        /* Modales ultra transparentes */
         .glass-modal {
-            background: rgba(18, 20, 26, 0.55) !important;
+            background: rgba(18, 20, 26, 0.80) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        /* Animación para modales */
         .modal-enter-active {
             opacity: 1;
             transform: scale(1) translateY(0);
@@ -69,20 +61,16 @@
             transition: opacity 200ms ease-in, transform 200ms ease-in;
         }
 
-        /* Scrollbar suave */
-        ::-webkit-scrollbar {
-            width: 5px;
+        /* Las pinturas se muestran completas, sin recortes */
+        .painting {
+            background: rgba(0, 0, 0, 0.45);
+            object-fit: contain;
         }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
     </style>
 </head>
 <body class="bg-dimension min-h-screen text-white flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-white selection:text-black">
@@ -90,27 +78,24 @@
     <!-- CONTENEDOR PRINCIPAL -->
     <div id="main-container" class="w-full flex-grow flex flex-col justify-center items-center p-4 sm:p-6 transition-all duration-500 z-10">
 
-        <!-- TARJETA PRINCIPAL ESTILO DIMENSION -->
         <div class="w-full max-w-2xl flex flex-col items-center text-center">
-            
-            <!-- Icono Diamante Superior -->
+
             <div class="relative flex flex-col items-center">
                 <div class="w-20 h-20 rounded-full border border-white/40 flex items-center justify-center bg-white/5 backdrop-blur-md shadow-2xl transition duration-300 hover:border-white hover:scale-105">
-                    <i class="fa-regular fa-gem text-2xl text-white"></i>
+                    <i class="fa-solid fa-palette text-2xl text-white"></i>
                 </div>
                 <div class="w-[1px] h-8 bg-white/30"></div>
             </div>
 
-            <!-- Caja Principal del Título -->
             <div class="w-full glass-panel rounded-sm px-6 py-10 sm:px-12 sm:py-14 relative border-t border-b border-white/20">
                 <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/30"></div>
 
                 <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-lg">
-                    Danissa M.H
+                    Danisa M.H
                 </h1>
-                
+
                 <p class="text-xs sm:text-sm font-light tracking-widest text-gray-300 uppercase leading-relaxed max-w-lg mx-auto">
-                    Exploración Pictórica & Movimiento Realista
+                    Exploración Pictórica &amp; Movimiento Realista
                 </p>
 
                 <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30"></div>
@@ -121,51 +106,38 @@
             <!-- BARRA DE NAVEGACIÓN -->
             <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/20 shadow-2xl">
                 <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
-                    <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        INTRO
-                    </button>
-                    <button onclick="openModal('historia')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        HISTORIA
-                    </button>
-                    <button onclick="openModal('about')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        SOBRE MÍ
-                    </button>
-                    <button onclick="openModal('galeria')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
-                        GALERÍA
-                    </button>
+                    <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">Intro</button>
+                    <button onclick="openModal('historia')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">Historia</button>
+                    <button onclick="openModal('about')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">Sobre mí</button>
+                    <button onclick="openModal('galeria')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">Galería</button>
                 </div>
             </div>
 
         </div>
-
     </div>
 
-    <!-- FOOTER CRÉDITOS -->
-    <footer class="w-full py-6 text-center text-xs tracking-widest text-gray-400 z-10">
-        <p>© UNTITLED. DESIGN: <a href="https://html5up.net" target="_blank" class="underline hover:text-white transition">HTML5 UP</a>. BUILT FOR GITHUB PAGES.</p>
+    <!-- FOOTER -->
+    <footer class="w-full py-6 px-4 text-center z-10 space-y-1">
+        <p class="text-xs tracking-widest text-gray-400">© 2026 Danisa M.H. Proyecto sobre el Realismo.</p>
+        <p class="text-[11px] text-gray-500">Pinturas de dominio público, vía Wikimedia Commons.</p>
     </footer>
 
 
-    <!-- ==================== CONTENEDOR DE MODALES ==================== -->
+    <!-- ==================== MODALES ==================== -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
-        
-        <!-- MODAL 1: INTRODUCCIÓN CON COLLAGE -->
+
+        <!-- MODAL 1: INTRODUCCIÓN -->
         <div id="modal-intro" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">INTRODUCCIÓN</h2>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">Introducción</h2>
+                <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- COLLAGE CON IMÁGENES DE ALTA DISPONIBILIDAD -->
-                <div class="grid grid-cols-2 gap-2 mb-4 rounded-md overflow-hidden border border-white/10 p-1 bg-black/20">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 1" class="w-full h-32 object-cover rounded border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 2" class="w-full h-32 object-cover rounded border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 3" class="w-full h-32 object-cover rounded border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 4" class="w-full h-32 object-cover rounded border border-white/10">
-                </div>
-                
+                <!-- Collage de la intro -->
+                <img src="collage.jpg" alt="Collage de obras del Realismo" loading="lazy" class="w-full h-auto rounded-md border border-white/10 mb-4">
+
                 <p class="text-base text-white font-light">
                     Bienvenido a esta muestra interactiva dedicada al <strong>Realismo del siglo XIX</strong>.
                 </p>
@@ -173,39 +145,41 @@
                     Este espacio fue concebido para explorar la belleza cruda del movimiento realista, donde los artistas abandonaron las fantasías mitológicas para enfocar su pincel en la cotidianidad, el trabajo campesino y la vida del pueblo.
                 </p>
                 <p>
-                    A través de esta plataforma podrás conocer el surgimiento histórico del movimiento y recorrer una galería visual con las obras más emblemáticas.
+                    A través de esta plataforma podrás conocer el surgimiento histórico del movimiento y recorrer una galería visual con cinco de sus obras más emblemáticas.
                 </p>
             </div>
         </div>
 
-        <!-- MODAL 2: HISTORIA DEL REALISMO -->
+        <!-- MODAL 2: HISTORIA -->
         <div id="modal-historia" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">HISTORIA & ORIGEN</h2>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">Historia &amp; Origen</h2>
+                <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-900 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" 
-                         alt="Historia del Realismo" 
-                         class="w-full h-full object-cover">
-                </div>
-                
-                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">El Surgimiento (Francia, mediados del siglo XIX)</h3>
+                <figure class="mb-4">
+                    <img src="Courbet_LAtelier.png"
+                         alt="El taller del pintor, de Gustave Courbet" loading="lazy"
+                         class="painting w-full max-h-56 rounded-md border border-white/10"
+                         onerror="this.src='https://placehold.co/1000x400/181b20/ffffff?text=El+Taller+del+Pintor'">
+                    <figcaption class="text-xs text-gray-500 mt-1">Gustave Courbet, <em>El taller del pintor</em> (1855).</figcaption>
+                </figure>
+
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1">El surgimiento (Francia, mediados del siglo XIX)</h3>
                 <p>
                     El Realismo nació en Francia tras la Revolución de 1848 como una firme reacción contra el <strong>Romanticismo</strong> (el drama idealizado) y el <strong>Neoclasicismo</strong>.
                 </p>
-                
-                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1 font-sans pt-2">¿En qué se inspiraban?</h3>
+
+                <h3 class="text-lg font-medium text-white border-b border-white/10 pb-1 pt-2">¿En qué se inspiraban?</h3>
                 <p>
-                    Bajo el lema de Gustave Courbet —<em>"Muéstrame un ángel y pintaré uno"</em>—, los artistas sostenían que el arte debía representar únicamente el mundo tangible y contemporáneo.
+                    Se le atribuye a Gustave Courbet la frase <em>"Muéstrame un ángel y pintaré uno"</em>, que resume la idea de que el arte debía representar únicamente el mundo tangible y contemporáneo.
                 </p>
                 <ul class="list-disc list-inside space-y-1 text-gray-300 pl-2">
-                    <li><strong>La verdad del trabajo:</strong> El campesinado y la clase obrera en su jornada real.</li>
-                    <li><strong>La vida urbana cotidiana:</strong> Los transportes de tercera clase, las lavanderas y la ciudad.</li>
-                    <li><strong>Iluminación natural:</strong> Paletas sobrias inspiradas en la tierra y el lienzo natural.</li>
+                    <li><strong>La verdad del trabajo:</strong> el campesinado y la clase obrera en su jornada real.</li>
+                    <li><strong>La vida urbana cotidiana:</strong> los transportes de tercera clase, las lavanderas y la ciudad.</li>
+                    <li><strong>Paletas sobrias:</strong> tonos terrosos y luz natural, sin dramatismo.</li>
                 </ul>
             </div>
         </div>
@@ -213,21 +187,20 @@
         <!-- MODAL 3: SOBRE MÍ -->
         <div id="modal-about" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">SOBRE MÍ</h2>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">Sobre mí</h2>
+                <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-900 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80" 
-                         alt="Danisa - Aprendizaje HTML" 
-                         class="w-full h-full object-cover">
+                <!-- Aquí puedes poner tu propia foto: <img src="foto.jpg" ...> -->
+                <div class="w-full h-32 rounded-md border border-white/10 bg-gradient-to-br from-white/10 to-black/30 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-paintbrush text-4xl text-white/60"></i>
                 </div>
-                
+
                 <h3 class="text-xl font-light text-white">¡Hola! Soy Danisa</h3>
                 <p>
-                    Decidí crear esta nueva página web basándome en el movimiento artístico del <strong>Realismo</strong> para combinar el diseño web con la historia del arte. 
+                    Decidí crear esta página web basándome en el movimiento artístico del <strong>Realismo</strong> para combinar el diseño web con la historia del arte.
                 </p>
                 <p>
                     Mi motivación principal es incorporar un trasfondo histórico a este proyecto, haciendo que mi camino de aprendizaje en <strong>HTML, CSS y GitHub Pages</strong> sea un proceso entretenido y significativo.
@@ -240,103 +213,92 @@
             </div>
         </div>
 
-        <!-- MODAL 4: GALERÍA CON IMÁGENES GARANTIZADAS Y RESPALDO -->
+        <!-- MODAL 4: GALERÍA -->
         <div id="modal-galeria" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
-                <h2 class="text-2xl font-light tracking-widest uppercase text-white">GALERÍA REALISTA</h2>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
+                <h2 class="text-2xl font-light tracking-widest uppercase text-white">Galería realista</h2>
+                <button onclick="closeModal()" aria-label="Cerrar" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
-            
-            <!-- GALERÍA SCROLLABLE VERTICAL -->
+
             <div class="p-6 overflow-y-auto space-y-6 text-gray-300 text-sm leading-relaxed">
                 <p class="text-xs uppercase tracking-widest text-gray-400 -mt-2">
                     Desliza hacia abajo para recorrer las 5 obras y conocer sus datos históricos.
                 </p>
 
-                <!-- Obra 1: El Taller del Pintor -->
+                <!-- Obra 1 -->
                 <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" 
-                         alt="El Taller del Pintor" 
-                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                    <img src="Courbet_LAtelier.png"
+                         alt="El taller del pintor, de Gustave Courbet" loading="lazy"
+                         class="painting w-full sm:w-52 h-44 rounded border border-white/10 shrink-0"
                          onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Taller+del+Pintor'">
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-base font-light tracking-wide text-white uppercase">1. El taller del pintor</h3>
-                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1855) / Museo de Orsay</span>
-                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Considerada la obra cumbre de Courbet. Representa al pintor en el centro trabajando, rodeado a la izquierda por personajes de la sociedad común (pobreza, trabajo) y a la derecha por sus amigos intelectuales.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-light tracking-wide text-white uppercase">1. El taller del pintor</h3>
+                        <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1855) / Museo de Orsay, París</span>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                            <strong>Significado:</strong> Considerada la obra cumbre de Courbet. Muestra al pintor en el centro, trabajando en un paisaje, rodeado a la derecha por sus amigos e intelectuales y a la izquierda por personajes del pueblo llano (la pobreza, el trabajo, la vida cotidiana).
+                        </p>
                     </div>
                 </article>
 
-                <!-- Obra 2: Las Espigadoras -->
+                <!-- Obra 2 -->
                 <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" 
-                         alt="Las Espigadoras" 
-                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                    <img src="Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg"
+                         alt="Las espigadoras, de Jean-François Millet" loading="lazy"
+                         class="painting w-full sm:w-52 h-44 rounded border border-white/10 shrink-0"
                          onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=Las+Espigadoras'">
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-base font-light tracking-wide text-white uppercase">2. Las espigadoras</h3>
-                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1857) / Museo de Orsay</span>
-                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Muestra a tres mujeres pobres inclinadas recogiendo los restos del trigo tras la cosecha. Dignifica el arduo trabajo rural sin idealizaciones heroicas, causando gran conmoción en la burguesía de la época.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-light tracking-wide text-white uppercase">2. Las espigadoras</h3>
+                        <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1857) / Museo de Orsay, París</span>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                            <strong>Significado:</strong> Muestra a tres mujeres pobres inclinadas recogiendo los restos del trigo tras la cosecha. Dignifica el arduo trabajo rural sin idealizaciones heroicas, y fue recibida con frialdad en el Salón de 1857.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Obra 3: El Vagón de Tercera Clase -->
+                <!-- Obra 3 -->
                 <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" 
-                         alt="El Vagón de Tercera Clase" 
-                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                    <img src="daumier_el_vagon_de_tercera.jpg"
+                         alt="El vagón de tercera clase, de Honoré Daumier" loading="lazy"
+                         class="painting w-full sm:w-52 h-44 rounded border border-white/10 shrink-0"
                          onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Vagon+de+Tercera'">
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-base font-light tracking-wide text-white uppercase">3. El vagón de tercera clase</h3>
-                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Honoré Daumier (1864) / Museo MET de Nueva York</span>
-                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Captura la fatiga y resignación de los viajeros pobres hacinados en un tren urbano durante la Revolución Industrial. Daumier destaca la mirada digna de una abuela y su nieto en primer plano.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-light tracking-wide text-white uppercase">3. El vagón de tercera clase</h3>
+                        <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Honoré Daumier (c. 1862-1864) / Museo Metropolitano, Nueva York</span>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                            <strong>Significado:</strong> Retrata la paciencia y el cansancio de los viajeros pobres apiñados en un vagón de tren, en plena era industrial. En primer plano, una mujer mayor y una joven con un niño destacan por su dignidad silenciosa. Daumier dejó la obra sin terminar.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Obra 4: El Ángelus -->
+                <!-- Obra 4 -->
                 <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=600&q=80" 
-                         alt="El Ángelus" 
-                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                    <img src="JEAN-FRAN%C3%87OIS_MILLET_-_El_%C3%81ngelus_%28Museo_de_Orsay%2C_1857-1859._%C3%93leo_sobre_lienzo%2C_55.5_x_66_cm%29.jpg"
+                         alt="El ángelus, de Jean-François Millet" loading="lazy"
+                         class="painting w-full sm:w-52 h-44 rounded border border-white/10 shrink-0"
                          onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Angelus'">
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-base font-light tracking-wide text-white uppercase">4. El ángelus</h3>
-                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1859) / Museo de Orsay</span>
-                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Dos campesinos interrumpen su trabajo al atardecer para rezar la oración del Ángelus tras escuchar las campanas del campanario distante. Es un tributo a la devoción sincera y la sencillez de la vida del campo.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-light tracking-wide text-white uppercase">4. El ángelus</h3>
+                        <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Jean-François Millet (1857-1859) / Museo de Orsay, París</span>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                            <strong>Significado:</strong> Dos campesinos detienen la cosecha de papas al atardecer para rezar la oración del Ángelus, al oír las campanas de la iglesia lejana. Es un tributo a la devoción sincera y a la sencillez de la vida del campo.
+                        </p>
                     </div>
                 </article>
 
-                <!-- Obra 5: Los Picapedreros -->
+                <!-- Obra 5 -->
                 <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" 
-                         alt="Los Picapedreros" 
-                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                    <img src="Lospicapedreros.png"
+                         alt="Los picapedreros, de Gustave Courbet" loading="lazy"
+                         class="painting w-full sm:w-52 h-44 rounded border border-white/10 shrink-0"
                          onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=Los+Picapedreros'">
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-base font-light tracking-wide text-white uppercase">5. Los picapedreros</h3>
-                            <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1849) / Manifiesto Realista</span>
-                            <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Un anciano y un joven rompiendo piedras al lado del camino. Courbet pintó sus rostros ocultos para simbolizar que no eran individuos específicos, sino la personificación del trabajo duro e interminable de la clase obrera.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-light tracking-wide text-white uppercase">5. Los picapedreros</h3>
+                        <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1849) / Destruida en 1945 (Dresde)</span>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-1">
+                            <strong>Significado:</strong> Un anciano y un joven rompiendo piedras al borde del camino. Sus rostros apenas se distinguen, de modo que representan al trabajador anónimo y no a personas concretas. El original se perdió en el bombardeo de Dresde y hoy solo se conserva en reproducciones.
+                        </p>
                     </div>
                 </article>
 
@@ -357,14 +319,13 @@
 
             if (currentModal) {
                 currentModal.classList.add('hidden');
+                currentModal.classList.remove('modal-enter-active');
             }
 
             currentModal = modal;
-            
+
             overlay.classList.remove('hidden');
-            setTimeout(() => {
-                overlay.classList.remove('opacity-0');
-            }, 10);
+            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
 
             modal.classList.remove('hidden');
             modal.classList.add('modal-enter-active');
@@ -377,7 +338,6 @@
 
             currentModal.classList.remove('modal-enter-active');
             currentModal.classList.add('modal-exit-active');
-
             overlay.classList.add('opacity-0');
 
             setTimeout(() => {
@@ -392,15 +352,11 @@
         }
 
         overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                closeModal();
-            }
+            if (e.target === overlay) closeModal();
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body>
