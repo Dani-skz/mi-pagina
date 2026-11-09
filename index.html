@@ -28,12 +28,12 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1b1f22;
+            background-color: #0f1115;
         }
 
-        /* Imagen de fondo estilo lienzo sobrio */
+        /* Imagen de fondo sobria con gradiente sutil */
         .bg-dimension {
-            background-image: linear-gradient(rgba(15, 18, 22, 0.75), rgba(15, 18, 22, 0.88)), 
+            background-image: linear-gradient(rgba(10, 12, 16, 0.65), rgba(10, 12, 16, 0.80)), 
                               url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -41,12 +41,20 @@
             background-attachment: fixed;
         }
 
-        /* Efecto Glassmorphism */
+        /* Panel Glassmorphism Transparente y Moderno */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Modales ultra transparentes */
+        .glass-modal {
+            background: rgba(18, 20, 26, 0.55) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         /* Animación para modales */
@@ -61,19 +69,19 @@
             transition: opacity 200ms ease-in, transform 200ms ease-in;
         }
 
-        /* Scrollbar personalización */
+        /* Scrollbar suave */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
         }
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.1);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -87,17 +95,17 @@
             
             <!-- Icono Diamante Superior -->
             <div class="relative flex flex-col items-center">
-                <div class="w-20 h-20 rounded-full border border-white/60 flex items-center justify-center bg-black/30 backdrop-blur-md shadow-lg transition duration-300 hover:border-white hover:scale-105">
+                <div class="w-20 h-20 rounded-full border border-white/40 flex items-center justify-center bg-white/5 backdrop-blur-md shadow-2xl transition duration-300 hover:border-white hover:scale-105">
                     <i class="fa-regular fa-gem text-2xl text-white"></i>
                 </div>
-                <div class="w-[1px] h-8 bg-white/40"></div>
+                <div class="w-[1px] h-8 bg-white/30"></div>
             </div>
 
             <!-- Caja Principal del Título -->
-            <div class="w-full glass-panel rounded-sm px-6 py-10 sm:px-12 sm:py-14 relative border-t border-b border-white/30">
-                <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/40"></div>
+            <div class="w-full glass-panel rounded-sm px-6 py-10 sm:px-12 sm:py-14 relative border-t border-b border-white/20">
+                <div class="absolute top-0 left-0 right-0 h-[1px] bg-white/30"></div>
 
-                <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-md">
+                <h1 class="text-3xl sm:text-5xl font-light tracking-widest3 uppercase mb-4 text-white drop-shadow-lg">
                     Danissa M.H
                 </h1>
                 
@@ -105,14 +113,14 @@
                     Exploración Pictórica & Movimiento Realista
                 </p>
 
-                <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/40"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30"></div>
             </div>
 
-            <div class="w-[1px] h-8 bg-white/40"></div>
+            <div class="w-[1px] h-8 bg-white/30"></div>
 
             <!-- BARRA DE NAVEGACIÓN -->
-            <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/30 shadow-2xl">
-                <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/20">
+            <div class="w-full glass-panel rounded-sm overflow-hidden border border-white/20 shadow-2xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
                     <button onclick="openModal('intro')" class="py-4 px-2 text-xs sm:text-sm tracking-widest uppercase hover:bg-white/10 active:bg-white/20 transition duration-300 text-gray-200 hover:text-white focus:outline-none">
                         INTRO
                     </button>
@@ -139,10 +147,10 @@
 
 
     <!-- ==================== CONTENEDOR DE MODALES ==================== -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
+    <div id="modal-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
         
         <!-- MODAL 1: INTRODUCCIÓN CON COLLAGE -->
-        <div id="modal-intro" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <div id="modal-intro" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">INTRODUCCIÓN</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -150,12 +158,12 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <!-- COLLAGE CON ENLACES SEGUROS -->
-                <div class="grid grid-cols-2 gap-2 mb-4 rounded-md overflow-hidden border border-white/10 p-1 bg-black/40">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg" alt="Las Espigadoras" class="w-full h-32 object-cover rounded">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg" alt="El Ángelus" class="w-full h-32 object-cover rounded">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Honor%C3%A9_Daumier_003.jpg/800px-Honor%C3%A9_Daumier_003.jpg" alt="El Vagón de Tercera Clase" class="w-full h-32 object-cover rounded">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/800px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" alt="El Taller del Pintor" class="w-full h-32 object-cover rounded">
+                <!-- COLLAGE CON IMÁGENES DE ALTA DISPONIBILIDAD -->
+                <div class="grid grid-cols-2 gap-2 mb-4 rounded-md overflow-hidden border border-white/10 p-1 bg-black/20">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 1" class="w-full h-32 object-cover rounded border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 2" class="w-full h-32 object-cover rounded border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 3" class="w-full h-32 object-cover rounded border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Obra Realista 4" class="w-full h-32 object-cover rounded border border-white/10">
                 </div>
                 
                 <p class="text-base text-white font-light">
@@ -171,7 +179,7 @@
         </div>
 
         <!-- MODAL 2: HISTORIA DEL REALISMO -->
-        <div id="modal-historia" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <div id="modal-historia" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">HISTORIA & ORIGEN</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -179,8 +187,8 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/1280px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" 
+                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-900 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" 
                          alt="Historia del Realismo" 
                          class="w-full h-full object-cover">
                 </div>
@@ -203,7 +211,7 @@
         </div>
 
         <!-- MODAL 3: SOBRE MÍ -->
-        <div id="modal-about" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <div id="modal-about" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">SOBRE MÍ</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -211,8 +219,8 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-gray-300 text-sm leading-relaxed">
-                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-800 border border-white/10 mb-4">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" 
+                <div class="w-full h-48 sm:h-56 rounded-md overflow-hidden bg-gray-900 border border-white/10 mb-4">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80" 
                          alt="Danisa - Aprendizaje HTML" 
                          class="w-full h-full object-cover">
                 </div>
@@ -232,8 +240,8 @@
             </div>
         </div>
 
-        <!-- MODAL 4: GALERÍA -->
-        <div id="modal-galeria" class="modal-card hidden glass-panel bg-slate-950/90 border border-white/20 rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
+        <!-- MODAL 4: GALERÍA CON IMÁGENES GARANTIZADAS Y RESPALDO -->
+        <div id="modal-galeria" class="modal-card hidden glass-modal rounded-md max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div class="flex justify-between items-center p-6 border-b border-white/10">
                 <h2 class="text-2xl font-light tracking-widest uppercase text-white">GALERÍA REALISTA</h2>
                 <button onclick="closeModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition text-gray-400 hover:text-white">
@@ -248,22 +256,28 @@
                 </p>
 
                 <!-- Obra 1: El Taller del Pintor -->
-                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Gustave_Courbet_-_L%27Atelier_du_peintre.jpg/800px-Gustave_Courbet_-_L%27Atelier_du_peintre.jpg" alt="El Taller del Pintor" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" 
+                         alt="El Taller del Pintor" 
+                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                         onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Taller+del+Pintor'">
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-base font-light tracking-wide text-white uppercase">1. El taller del pintor</h3>
                             <span class="inline-block px-2 py-0.5 my-1 bg-white/10 rounded text-xs font-mono text-gray-300 border border-white/10">Gustave Courbet (1855) / Museo de Orsay</span>
                             <p class="text-xs text-gray-300 leading-relaxed mt-1">
-                                <strong>Significado:</strong> Considerada la obra cumbre de Courbet. Representa al pintor en el centro trabajando, rodeado a la izquierda por personajes de la sociedad común (pobreza, trabajo) y a la derecha por sus amigos intelectuales como Charles Baudelaire.
+                                <strong>Significado:</strong> Considerada la obra cumbre de Courbet. Representa al pintor en el centro trabajando, rodeado a la izquierda por personajes de la sociedad común (pobreza, trabajo) y a la derecha por sus amigos intelectuales.
                             </p>
                         </div>
                     </div>
                 </article>
 
                 <!-- Obra 2: Las Espigadoras -->
-                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_Des_glaneuses.jpg" alt="Las Espigadoras" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" 
+                         alt="Las Espigadoras" 
+                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                         onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=Las+Espigadoras'">
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-base font-light tracking-wide text-white uppercase">2. Las espigadoras</h3>
@@ -276,8 +290,11 @@
                 </article>
 
                 <!-- Obra 3: El Vagón de Tercera Clase -->
-                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Honor%C3%A9_Daumier_003.jpg/800px-Honor%C3%A9_Daumier_003.jpg" alt="El Vagón de Tercera Clase" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" 
+                         alt="El Vagón de Tercera Clase" 
+                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                         onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Vagon+de+Tercera'">
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-base font-light tracking-wide text-white uppercase">3. El vagón de tercera clase</h3>
@@ -290,8 +307,11 @@
                 </article>
 
                 <!-- Obra 4: El Ángelus -->
-                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg/800px-Jean-Fran%C3%A7ois_Millet_-_L%27Ang%C3%A9lus.jpg" alt="El Ángelus" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=600&q=80" 
+                         alt="El Ángelus" 
+                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                         onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=El+Angelus'">
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-base font-light tracking-wide text-white uppercase">4. El ángelus</h3>
@@ -304,8 +324,11 @@
                 </article>
 
                 <!-- Obra 5: Los Picapedreros -->
-                <article class="bg-black/40 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Courbet_The_Stonebreakers.jpg/800px-Courbet_The_Stonebreakers.jpg" alt="Los Picapedreros" class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0">
+                <article class="bg-black/30 border border-white/10 rounded-md overflow-hidden flex flex-col sm:flex-row gap-4 p-4 hover:border-white/30 transition">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" 
+                         alt="Los Picapedreros" 
+                         class="w-full sm:w-44 h-48 object-cover rounded border border-white/10 shrink-0"
+                         onerror="this.src='https://placehold.co/400x300/181b20/ffffff?text=Los+Picapedreros'">
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-base font-light tracking-wide text-white uppercase">5. Los picapedreros</h3>
